@@ -40,12 +40,12 @@ const Home = () => {
         </div>
       ) : (
         <Wrapper>
-          <Popular>Popular picks</Popular>
-          {isSuccess && (
-            <Grid>
-              {data?.data?.recipes.map((recipe: any, index: number) => (
-                <div key={index}>
-                  <Card>
+          <div>
+            <Popular>Popular picks</Popular>
+            {isSuccess && (
+              <Grid>
+                {data?.data?.recipes.map((recipe: any, index: number) => (
+                  <Card key={index}>
                     <Title>{recipe.title}</Title>
                     <Image
                       src={recipe.image}
@@ -57,10 +57,10 @@ const Home = () => {
                       See more
                     </Button>
                   </Card>
-                </div>
-              ))}
-            </Grid>
-          )}
+                ))}
+              </Grid>
+            )}
+          </div>
         </Wrapper>
       )}
     </>
@@ -71,12 +71,15 @@ export default Home;
 
 const Wrapper = styled.div`
   margin: auto;
+  text-align: center;
 `;
 const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
   grid-gap: 3rem;
-  margin: auto;
+  text-align: center;
+  width: 100%;
+  justify-items: center;
 `;
 const Card = styled.div`
   box-shadow: var(--boxShadow);
@@ -87,7 +90,8 @@ const Card = styled.div`
   height: 340px;
   padding: 8px 16px;
   margin: 12px 0;
-
+  place-items: center;
+  text-align: center;
   @media screen and (max-width: 768px) {
     max-width: 400px;
   }

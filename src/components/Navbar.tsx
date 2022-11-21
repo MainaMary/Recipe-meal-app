@@ -106,7 +106,7 @@ const Navbar = ({ show = true, checkBtns = false }: Props) => {
             })}
 
             <Items className="navBtn" onClick={handleModal}>
-              <FaUserAlt className="navBtn" />
+              <FaUserAlt className="navBtn" size={20} />
             </Items>
           </ListWrap>
         </>
@@ -194,7 +194,7 @@ const NavWrapper = styled.nav`
   background-color: rgba(244, 159, 47, 0.8);
   display: flex;
   justify-content: space-between;
-  padding: 0 20px;
+  padding: 0 32px;
   align-items: center;
 
   @media screen and (max-width: 768px) {
@@ -237,7 +237,7 @@ const Items = styled.li`
     text-decoration: none;
     padding: 0 20px;
     color: #000;
-    font-size: 16px;
+    font-size: 20px;
     @media screen and (max-width: 768px) {
       color: var(--globalColor);
     }

@@ -45,22 +45,27 @@ const Diet = (props: Props) => {
               <CustomLoader />
             </div>
           ) : (
-            <>
-              <div>
+            <div>
+              <h2 style={{ textAlign: "center", margin: "30px 0" }}>
+                Meal Plan
+              </h2>
+              <Wrap>
                 {data?.data?.nutrients &&
                   Object.entries(data?.data?.nutrients)?.map((item: any) => (
-                    <div>
-                      <p>{item[0]}</p>
-                      <p>{item[1].toFixed(0)}</p>
-                    </div>
+                    <Flex>
+                      <p>
+                        {item[0]}
+                        <span> {item[1].toFixed(0)}</span>
+                      </p>
+                    </Flex>
                   ))}
-              </div>
+              </Wrap>
               <Grid>
                 {data?.data?.meals.map((meal: any) => (
                   <MealDiet key={meal.id} meal={meal} />
                 ))}
               </Grid>
-            </>
+            </div>
           )}
         </>
       }
@@ -86,4 +91,18 @@ const Box = styled.div`
   img {
     border-radius: 10px;
   }
+`;
+const Wrap = styled.div`
+  display: flex;
+  justify-content: space-around;
+`;
+const Flex = styled.div`
+  border-radius: 50px;
+  padding: 12px 16px;
+  background-color: #fff;
+  box-shadow: 0 0 3px #777;
+  outline: none;
+  margin: 20px 0;
+  width: 15%;
+  text-align: center;
 `;

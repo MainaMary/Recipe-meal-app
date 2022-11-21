@@ -23,27 +23,32 @@ const MealDiet = ({ meal }: Props) => {
     navigate(`/recipe/${id}`);
   };
   return (
-    <Wrapper>
-      <Card>
-        <Title>{meal.title}</Title>
-        {isLoading ? (
-          <h3>Loading...</h3>
-        ) : (
-          <Image src={data?.data?.image} alt={meal.title} loading="lazy" />
-        )}
+    <div>
+      <Wrapper>
+        <Card>
+          <Title>{meal.title}</Title>
+          {isLoading ? (
+            <h3>Loading...</h3>
+          ) : (
+            <Image src={data?.data?.image} alt={meal.title} loading="lazy" />
+          )}
 
-        <Title>Number of minutes {meal.readyInMinutes}</Title>
-        <Button onClick={() => showMore(meal.id)}>See more</Button>
-      </Card>
-    </Wrapper>
+          <Title>Number of minutes {meal.readyInMinutes}</Title>
+          <Button onClick={() => showMore(meal.id)}>See more</Button>
+        </Card>
+      </Wrapper>
+    </div>
   );
 };
 
 export default MealDiet;
 const Wrapper = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  grid-gap: 3rem;
+  text-align: center;
+  width: 100%;
+  justify-items: center;
   @media screen and (max-width: 768px) {
     display: flex;
     flex-direction: column;
