@@ -10,6 +10,7 @@ import SearchResults from "./pages/SearchResults";
 import Diet from "./pages/diet/Diet";
 import UpdateProfile from "./pages/updateProfile/UpdateProfile";
 import ForgotPassword from "./pages/forgot/ForgotPassword";
+import NotFound from "./pages/NotFound";
 import ProtectedRoutes from "./routes/ProtectedRoutes";
 
 const routes = [
@@ -67,6 +68,11 @@ const routes = [
   {
     path: `/forgotPassword`,
     component: <ForgotPassword />,
+    protectedR: false,
+  },
+  {
+    path: "*",
+    component: <NotFound />,
     protectedR: false,
   },
 ];
