@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import Navbar from "../../components/Navbar";
 import CustomLoader from "../../components/CustomLoader";
 import styled from "styled-components";
@@ -27,7 +26,6 @@ const Diet = (props: Props) => {
   console.log(data, "data diet component");
   let objectClone = {};
   objectClone = { ...data?.data?.meals, ...data?.data?.nutrients };
-  console.log(objectClone, "object");
 
   return (
     <>

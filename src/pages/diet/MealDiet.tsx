@@ -18,7 +18,6 @@ const MealDiet = ({ meal }: Props) => {
     );
   };
   const { data, isLoading } = useQuery([meal.id], fetchInfo);
-  console.log(data, "data");
   const showMore = (id: string) => {
     navigate(`/recipe/${id}`);
   };

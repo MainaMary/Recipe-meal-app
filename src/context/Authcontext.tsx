@@ -1,10 +1,6 @@
-import React, { createContext, useContext, useState, useEffect } from "react";
+import React, { createContext, useState, useEffect } from "react";
 import { auth } from "../firebase";
-import {
-  createUserWithEmailAndPassword,
-  onAuthStateChanged,
-  User,
-} from "firebase/auth";
+import { onAuthStateChanged, User } from "firebase/auth";
 
 interface Props {
   currentUser: User | null;
@@ -15,11 +11,6 @@ export const Authcontext = createContext<Props>({
   currentUser: null,
   signUp: () => {},
 });
-
-//acess data from the provider and make it accessible at any hierarchy level of the app
-// export const useAuthConsumer = () => {
-//   return useContext(Authcontext);
-// };
 
 interface IProps {
   children: JSX.Element;
@@ -42,15 +33,6 @@ const AuthProvider = ({ children }: IProps) => {
     const register = auth.createUserWithEmailAndPassword(auth, email, password);
     return register;
   };
-  // const signUp = async (email: string, password: string) => {
-  //   try {
-  //     const user = await createUserWithEmailAndPassword(auth, email, password);
-  //     console.log(user);
-  //     return user;
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
 
   const value: Props = {
     currentUser,
