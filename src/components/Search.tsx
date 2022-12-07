@@ -24,7 +24,7 @@ const Search = () => {
         placeholder={"Search..."}
       />
       <Button>
-        <FaSearch style={{ fontSize: "14px", color: "#fff" }} />
+        <FaSearch style={{ fontSize: "16px", color: "#fff" }} />
       </Button>
     </Wrapper>
   );
