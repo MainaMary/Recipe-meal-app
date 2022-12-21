@@ -6,6 +6,7 @@ import { NavLink } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Modal from "../components/Modal";
 import { useNavigate } from "react-router-dom";
+import { Button } from "../styles/styled";
 interface Props {
   cuisine?: string;
 }
@@ -95,11 +96,12 @@ const Cuisines = ({ cuisine }: Props) => {
       </CuisineWrap>
       <Grid>
         {italian.map((item: any) => (
-          <Box key={item.id}>
-            <img alt={item.title} src={item.image} loading="lazy" />
-            <h3>{item.title}</h3>
+          <Card key={item.id}>
+            <Title>{item.title}</Title>
+            <Image alt={item.title} src={item.image} loading="lazy" />
+
             <Button onClick={() => handleNavigate(item.id)}>See more</Button>
-          </Box>
+          </Card>
         ))}
       </Grid>
       <Modal openModal={openModal} handleModal={handleModal} />
@@ -112,6 +114,33 @@ const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
   grid-gap: 3rem;
+`;
+const Card = styled.div`
+  box-shadow: var(--boxShadow);
+  border-radius: var(--borderRadius);
+  max-width: 300px;
+  width: 100%;
+  margin: auto;
+  height: 340px;
+  padding: 8px 16px;
+  margin: 12px 0;
+  place-items: center;
+  text-align: center;
+  @media screen and (max-width: 768px) {
+    max-width: 400px;
+  }
+`;
+const Image = styled.img`
+  width: 100%;
+  height: auto;
+  border-radius: var(--borderRadius);
+  margin: 12px 0;
+  object-fit: cover;
+`;
+const Title = styled.h2`
+  font-size: 18px;
+  margin-bottom: 12px;
+  font-weight: 500;
 `;
 const CuisineWrap = styled.div`
   padding: 20px;
@@ -133,21 +162,7 @@ const ItemWrapper = styled.div`
     border-radius: var(--borderRadius);
   }
 `;
-const Button = styled.button`
-  text-align: center;
-  background-color: var(--globalColor);
-  color: #fff;
-  padding: 8px 20px;
-  width: 50%;
-  outline: none;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-  border: 1px solid #fff;
-  @media screen and (max-width: 768px) {
-    width: 100%;
-  }
-`;
+
 const Container = styled.div`
   width: 40%;
   text-align: right;

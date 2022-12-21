@@ -70,7 +70,9 @@ const Meal = () => {
   const { id } = useParams();
   const getRecipes = async () => {
     const response = await axios.get(
-      `https://api.spoonacular.com/recipes/${id}/information?apiKey=${process.env.REACT_APP_API_KEY}`
+      `https://api.spoonacular.com/recipes/${id}/information?apiKey=${
+        import.meta.env.VITE_APP_API_KEY
+      }`
     );
     return response;
   };
@@ -159,7 +161,7 @@ export default Meal;
 const Title = styled.p`
   font-weight: 500;
   font-size: 24px;
-  border-bottom: 3px solid #000;
+
   &.active {
     color: orange;
     border-bottom: 3px solid orange;
