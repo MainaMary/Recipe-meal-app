@@ -6,6 +6,7 @@ import { Button } from "../styles/styled";
 import { useNavigate } from "react-router-dom";
 import CustomLoader from "../components/CustomLoader";
 import { UserContext } from "../context/UserContext";
+import NetworkErr from "./NetworkErr";
 
 const Home = () => {
   let navigate = useNavigate();
@@ -21,8 +22,13 @@ const Home = () => {
     return res;
   };
 
-  const { data, isLoading, isSuccess } = useQuery("getRecipes", fetchRecipes);
-
+  const { data, isLoading, isError, isSuccess } = useQuery(
+    "getRecipes",
+    fetchRecipes
+  );
+  if (isError) {
+    return <NetworkErr />;
+  }
   const handleImage = (id: string) => {
     navigate(`/recipe/${id}`);
   };
