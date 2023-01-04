@@ -161,6 +161,7 @@ export default Meal;
 const Title = styled.p`
   font-weight: 500;
   font-size: 24px;
+  cursor: pointer;
 
   &.active {
     color: orange;
