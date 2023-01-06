@@ -121,14 +121,24 @@ const SignupForm = () => {
 
       <Box>
         <CustomLabel>Username</CustomLabel>
-        <CustomInput value={username} name="username" onChange={handleChange} />
+        <CustomInput
+          type="text"
+          value={username}
+          name="username"
+          onChange={handleChange}
+        />
         <div style={{ fontSize: "12px", color: "red", margin: "5px 0" }}>
           {userNameErr ? userNameErr : ""}
         </div>
       </Box>
       <Box>
         <CustomLabel>Email</CustomLabel>
-        <CustomInput value={email} name="email" onChange={handleChange} />
+        <CustomInput
+          type="text"
+          value={email}
+          name="email"
+          onChange={handleChange}
+        />
         <div style={{ fontSize: "12px", color: "red", margin: "5px 0" }}>
           {emailErr ? emailErr : ""}
         </div>
@@ -137,6 +147,7 @@ const SignupForm = () => {
         <PasswordWrap>
           <CustomLabel>Password</CustomLabel>
           <CustomInput
+            type="password"
             value={password}
             name="password"
             onChange={handleChange}
@@ -148,6 +159,7 @@ const SignupForm = () => {
         <PasswordWrap>
           <CustomLabel>Confirm Password</CustomLabel>
           <CustomInput
+            type="password"
             value={confirmPswd}
             name="confirmPswd"
             onChange={handleChange}
