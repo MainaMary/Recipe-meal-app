@@ -93,6 +93,7 @@ const LoginForm = () => {
           value={formValues.email}
           name="email"
           onChange={handleChange}
+          type="text"
         />
         <div style={{ fontSize: "12px", color: "red", margin: "5px 0" }}>
           {emailErr ? emailErr : ""}
@@ -105,6 +106,7 @@ const LoginForm = () => {
             value={formValues.password}
             name="password"
             onChange={handleChange}
+            type="password"
           />
           <div style={{ fontSize: "12px", color: "red", margin: "5px 0" }}>
             {passwordErr ? passwordErr : ""}
